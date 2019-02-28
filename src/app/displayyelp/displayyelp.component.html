@@ -1,0 +1,35 @@
+<form class="form" (submit) ="sendSearch(term.value, price.value)">
+
+  <select class="select" #price value=''>
+    <option value="$">$</option>
+    <option value="$$">$$</option>
+    <option value="$$$">$$$</option>
+    <option value="$$$$">$$$$</option>
+  </select>
+
+  <br />
+  <br />
+
+  <label> Enter location:</label>
+
+  <br />
+
+  <input #term type="text" placeholder="ex. Indianapolis" />
+
+  <button type="submit">Search</button>
+  
+</form>
+
+<div class="card">
+  <div>
+    <img src= "{{ yelp.image_url }}" />
+    <ul>
+      
+      <li>Name: {{ yelp.name }}</li>
+      <li>Rating: {{ ratingView }}</li>
+      <li>Phone Number: {{ yelp.phone }}</li>
+      <li>Location: {{ yelp.location.address1 }}, {{ yelp.location.city }}, {{ yelp.location.state }}</li>
+      <li *ngIf = "transaction == 'delivery'">This restaurant delivers.</li>
+    </ul>
+  </div>
+</div>
